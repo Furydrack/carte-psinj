@@ -1,0 +1,26 @@
+#map {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Custom popup styles */
+.custom-popup .leaflet-popup-content-wrapper {
+  background: #2c3e50; /* Dark background */
+  color: #ffffff;     /* White text */
+  border-radius: 8px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+.custom-popup .leaflet-popup-tip {
+  background: #2c3e50;
+}
+
+.custom-popup a {
+    color: #46a3ff; /* Light blue for links */
+    text-decoration: none;
+}
+
+.custom-popup a:hover {
+    text-decoration: underline;
+}
