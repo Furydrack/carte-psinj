@@ -57,8 +57,8 @@ function addMarker(data, lat, lon) {
     }
 
     const popupContent = `
-        <b>${pseudo || `${first_name} ${last_name.charAt(0)}.`}</b><br>
-        ${first_name} ${last_name}<br>
+        <b>${pseudo || (last_name ? `${first_name} ${last_name.charAt(0)}.` : first_name)}</b><br>
+        ${(pseudo ? `${first_name} ${last_name}<br>` : '')}
         <a href="${companyLink}" target="_blank">${companyName}</a><br>
         ${description ? `<br><i>${description}</i><br>` : ''}
     `;
@@ -88,7 +88,7 @@ function addMarker(data, lat, lon) {
         tooltipOptions.className = 'saimiri-tooltip';
     }
     
-    marker.bindTooltip(pseudo || `${first_name} ${last_name.charAt(0)}.`, tooltipOptions).openTooltip();
+    marker.bindTooltip(pseudo || (last_name.length > 0 ? `${first_name} ${last_name.charAt(0)}.` : first_name), tooltipOptions).openTooltip();
 
     // Add a click event listener to the marker to zoom in
     marker.on('click', function () {
@@ -97,7 +97,7 @@ function addMarker(data, lat, lon) {
 
     // Store marker data for the HUD
     allMarkersData.push({
-        pseudo: pseudo || `${first_name} ${last_name.charAt(0)}.`, // Use pseudo or generated initial
+        pseudo: pseudo || (last_name.length > 0 ? `${first_name} ${last_name.charAt(0)}.` : first_name), // Use pseudo or generated initial
         city: city,
         birth: birth,
         lat: lat,
