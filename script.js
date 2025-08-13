@@ -12,9 +12,9 @@ const defaultLeafletIcon = new L.Icon.Default();
 
 // Function to get the appropriate icon for a marker
 function getMarkerIcon(data) {
-    const prenom = data['Prénom*'] || '';
-    const nom = data['Nom*'] || '';
-    const customIconPath = `PopupCustomVisual/${prenom}_${nom}.png`;
+    const first_name = data['Prénom*'] || '';
+    const last_name = data['Nom*'] || '';
+    const customIconPath = `PopupCustomVisual/${first_name}_${last_name}.png`;
     
     // Create a temporary image to check if the custom icon exists
     const img = new Image();
@@ -37,27 +37,27 @@ function addMarker(data, lat, lon) {
     const markerIcon = getMarkerIcon(data); // Get the appropriate icon
     const marker = L.marker([lat, lon], { icon: markerIcon }).addTo(map);
 
-    const prenom = data['Prénom*'] || '';
-    const nom = data['Nom*'] || '';
-    const pseudoDisplay = data['Pseudo (ce qui sera affiché sur la carte, laissez vide\n pour votre prénom + initiale)'] || '';
+    const first_name = data['Prénom*'] || '';
+    const last_name = data['Nom*'] || '';
+    const pseudo = data['Pseudo'] || '';
     const description = data['Description'] || '';
     const role = data['Rôle*'] || '';
-    const addressPrecise = data['Adresse* (votre boîte / chez vous / ville, \nce sera là que vous serez sur la carte)'] || '';
-    const companyName = data['Nom de votre boîte'] || '';
-    const companyLink = data['Lien de son site internet si lieu d\'être'] || '';
+    const location = data['Adresse*'] || '';
+    const companyName = data['Boîte'] || '';
+    const companyLink = data['Lien de la boîte'] || '';
 
     // Extract city from address (simple approach, might need refinement for complex addresses)
     let city = 'Unknown City';
-    const cityMatch = addressPrecise.match(/([A-Za-zÀ-ÿ\s-]+)(?: (\d{5}))?$/);
+    const cityMatch = location.match(/([A-Za-zÀ-ÿ\s-]+)(?: (\d{5}))?$/);
     if (cityMatch && cityMatch[1]) {
         city = cityMatch[1].trim();
-    } else if (addressPrecise) { // If it's just a city name
-        city = addressPrecise.trim();
+    } else if (location) { // If it's just a city name
+        city = location.trim();
     }
 
     const popupContent = `
-        <b>${pseudoDisplay || `${prenom} ${nom.charAt(0)}.`}</b><br>
-        ${prenom} ${nom}<br>
+        <b>${pseudo || `${first_name} ${last_name.charAt(0)}.`}</b><br>
+        ${first_name} ${last_name}<br>
         <a href="${companyLink}" target="_blank">${companyName}</a><br>
         ${description ? `<br><i>${description}</i><br>` : ''}
     `;
@@ -87,7 +87,7 @@ function addMarker(data, lat, lon) {
         tooltipOptions.className = 'saimiri-tooltip';
     }
     
-    marker.bindTooltip(pseudoDisplay || `${prenom} ${nom.charAt(0)}.`, tooltipOptions).openTooltip();
+    marker.bindTooltip(pseudo || `${first_name} ${last_name.charAt(0)}.`, tooltipOptions).openTooltip();
 
     // Add a click event listener to the marker to zoom in
     marker.on('click', function () {
@@ -96,7 +96,7 @@ function addMarker(data, lat, lon) {
 
     // Store marker data for the HUD
     allMarkersData.push({
-        pseudo: pseudoDisplay || `${prenom} ${nom.charAt(0)}.`, // Use pseudo or generated initial
+        pseudo: pseudo || `${first_name} ${last_name.charAt(0)}.`, // Use pseudo or generated initial
         city: city,
         lat: lat,
         lon: lon,
@@ -105,8 +105,8 @@ function addMarker(data, lat, lon) {
         companyLink: companyLink,
         description: description,
         role: role,
-        prenom: prenom,
-        nom: nom
+        prenom: first_name,
+        nom: last_name
     });
 }
 
@@ -137,7 +137,7 @@ function updateMarkerListHUD() {
             <img src="${iconUrlForHud}" alt="Marker Icon">
             <div class="marker-info">
                 <strong>${markerData.pseudo}</strong><br>
-                <span>${markerData.prenom} ${markerData.nom} - ${markerData.role}</span><br>
+                <span>${markerData.prenom} ${markerData.nom} [${markerData.role}]</span><br>
                 <span>${markerData.city} ${markerData.companyName ? `- <a href="${markerData.companyLink}" target="_blank">${markerData.companyName}</a>` : ''}</span>
                 ${markerData.description ? `<br><i>${markerData.description}</i>` : ''}
             </div>
