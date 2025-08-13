@@ -24,7 +24,7 @@ jobs:
           pip install requests pandas # autres libs si nécessaire
 
       - name: Run processing script
-        run: python ton_script.py
+        run: python prepare_data.py
 
       - name: Commit changes (amend if last commit is from bot)
         run: |
