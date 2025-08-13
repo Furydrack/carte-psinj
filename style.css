@@ -160,3 +160,26 @@
     color: white !important; /* White text for better contrast */
     border-color: #2980b9 !important; /* Darker blue border */
 }
+
+/* Saïmiri specific styles */
+.saimiri-role {
+    background-color: rgba(114, 89, 57, 0.7) !important;
+}
+
+.saimiri-role:hover {
+    background-color: rgba(114, 89, 57, 0.7) !important;
+}
+
+.saimiri-popup {
+    background: rgba(114, 89, 57, 0.7) !important; /* Blue for Légende popup */
+}
+
+.saimiri-popup .leaflet-popup-tip {
+    background: rgba(114, 89, 57, 0.7) !important;
+}
+
+.saimiri-tooltip {
+    background-color: rgba(71, 57, 37, 0.7) !important; /* Blue background for Légende tooltip */
+    color: white !important; /* White text for better contrast */
+    border-color: rgba(59, 47, 30, 0.7) !important; /* Darker blue border */
+}

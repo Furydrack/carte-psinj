@@ -69,6 +69,9 @@ function addMarker(data, lat, lon) {
     else if (role === 'Légende') {
         popupOptions.className += ' legende-popup';
     }
+    else if (role == 'Saïmiri') {
+        popupOptions.className += ' saimiri-popup';
+    }
 
     marker.bindPopup(popupContent, popupOptions);
 
@@ -79,6 +82,9 @@ function addMarker(data, lat, lon) {
     }
     else if (role === 'Légende') {
         tooltipOptions.className = 'legende-tooltip';
+    }
+    else if (role === 'Saïmiri') {
+        tooltipOptions.className = 'saimiri-tooltip';
     }
     
     marker.bindTooltip(pseudoDisplay || `${prenom} ${nom.charAt(0)}.`, tooltipOptions).openTooltip();
@@ -121,6 +127,9 @@ function updateMarkerListHUD() {
         }
         else if (markerData.role === 'Légende') {
             listItem.classList.add('legende-role');
+        }
+        else if (markerData.role === 'Saïmiri') {
+            listItem.classList.add('saimiri-role');
         }
         // Use the actual icon URL from the marker for the HUD list
         const iconUrlForHud = markerData.marker.options.icon.options.iconUrl || defaultLeafletIcon.options.iconUrl;
