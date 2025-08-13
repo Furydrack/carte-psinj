@@ -59,7 +59,7 @@ function addMarker(data, lat, lon) {
     const popupContent = `
         <b>${pseudo || (last_name ? `${first_name} ${last_name.charAt(0)}.` : first_name)}</b><br>
         ${(pseudo ? `${first_name} ${last_name}<br>` : '')}
-        <a href="${companyLink}" target="_blank">${companyName}</a><br>
+        ${companyLink ? `<a href="${companyLink}" target="_blank">${companyName}</a>` : companyName}<br>
         ${description ? `<br><i>${description}</i><br>` : ''}
     `;
 
