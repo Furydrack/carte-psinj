@@ -62,8 +62,7 @@ def prepare_data():
 
     # Geocode each row
     for i, row in enumerate(data_rows):
-        # Assuming 'Adresse* (votre boîte / chez vous / ville, ce sera là que vous serez sur la carte)' is the 6th column (index 5)
-        address_column_index = 5
+        address_column_index = 6
         if len(row) > address_column_index:
             address = row[address_column_index]
             print(f"Geocoding address: {address} (row {i+2})") # +2 for header and 0-indexing
