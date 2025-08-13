@@ -13,7 +13,7 @@ const defaultLeafletIcon = new L.Icon.Default();
 // Function to get the appropriate icon for a marker
 function getMarkerIcon(data) {
     const first_name = data['Prénom*'] || '';
-    const last_name = data['Nom*'] || '';
+    const last_name = data['Nom'] || '';
     const customIconPath = `PopupCustomVisual/${first_name}_${last_name}.png`;
     
     // Create a temporary image to check if the custom icon exists
@@ -38,7 +38,7 @@ function addMarker(data, lat, lon) {
     const marker = L.marker([lat, lon], { icon: markerIcon }).addTo(map);
 
     const first_name = data['Prénom*'] || '';
-    const last_name = data['Nom*'] || '';
+    const last_name = data['Nom'] || '';
     const pseudo = data['Pseudo'] || '';
     const description = data['Description'] || '';
     const birth = data['Anniversaire'] || '';
