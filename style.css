@@ -1,5 +1,5 @@
 #map {
-    height: 100vh;
+    height: calc(100vh - 250px); /* Adjust map height to accommodate HUD */
     width: 100%;
 }
 
@@ -23,4 +23,140 @@
 
 .custom-popup a:hover {
     text-decoration: underline;
+}
+
+/* Style for the pseudo tooltip */
+.leaflet-tooltip {
+    font-size: 12px; /* Adjust as needed */
+    font-weight: bold;
+    color: #333; /* Darker color for better contrast */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* HUD Styles */
+#marker-list-hud {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px; /* Increased height */
+    background-color: rgba(44, 62, 80, 0.9); /* Dark background with transparency */
+    color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    z-index: 1000; /* Ensure it's above the map */
+    border-top: 2px solid #34495e;
+}
+
+#marker-list-hud h2 {
+    margin-top: 0;
+    color: #ecf0f1;
+    text-align: center;
+}
+
+#markers-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Enable flexbox for columns */
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+#markers-ul li {
+    display: flex;
+    align-items: center;
+    padding: 12px; /* Increased padding */
+    border-bottom: 1px solid #34495e;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: calc(25% - 20px); /* 4 columns, accounting for padding/margin */
+    margin: 10px; /* Add some margin between items */
+    box-sizing: border-box;
+    border-radius: 5px; /* Slightly rounded corners for list items */
+    background-color: rgba(52, 73, 94, 0.5); /* Slightly lighter background for items */
+}
+
+#markers-ul li:hover {
+    background-color: rgba(52, 73, 94, 0.7);
+}
+
+#markers-ul li:last-child {
+    border-bottom: none;
+}
+
+#markers-ul li img {
+    width: 40px; /* Increased image size */
+    height: 40px; /* Increased image size */
+    margin-right: 15px; /* Increased margin */
+    border-radius: 50%; /* Make image circular */
+    object-fit: cover;
+    border: 2px solid #46a3ff; /* Small border around image */
+}
+
+#markers-ul li .marker-info {
+    flex-grow: 1;
+}
+
+#markers-ul li .marker-info strong {
+    display: block;
+    font-size: 1.2em; /* Increased font size */
+    color: #ecf0f1;
+}
+
+#markers-ul li .marker-info span {
+    font-size: 1em; /* Increased font size */
+    color: #bdc3c7;
+}
+
+/* PSINJ specific styles */
+.psinj-role {
+    background-color: rgba(46, 204, 113, 0.7) !important; /* Green for PSINJ role */
+}
+
+.psinj-role:hover {
+    background-color: rgba(46, 204, 113, 0.9) !important;
+}
+
+/* Corrected selector for PSINJ popup */
+.psinj-popup {
+    background: #2ecc71 !important; /* Green for PSINJ popup */
+}
+
+.psinj-popup .leaflet-popup-tip {
+    background: #2ecc71 !important;
+}
+
+/* PSINJ tooltip style */
+.psinj-tooltip {
+    background-color: #2ecc71 !important; /* Green background for PSINJ tooltip */
+    color: white !important; /* White text for better contrast */
+    border-color: #27ae60 !important; /* Darker green border */
+}
+
+/* Légende specific styles */
+.legende-role {
+    background-color: rgba(52, 152, 219, 0.7) !important; /* Blue for Légende role */
+}
+
+.legende-role:hover {
+    background-color: rgba(52, 152, 219, 0.9) !important;
+}
+
+.legende-popup {
+    background: #3498db !important; /* Blue for Légende popup */
+}
+
+.legende-popup .leaflet-popup-tip {
+    background: #3498db !important;
+}
+
+.legende-tooltip {
+    background-color: #3498db !important; /* Blue background for Légende tooltip */
+    color: white !important; /* White text for better contrast */
+    border-color: #2980b9 !important; /* Darker blue border */
 }
