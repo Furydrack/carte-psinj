@@ -1,3 +1,10 @@
-Prénom*,Nom,Pseudo,Description,Anniversaire,Rôle*,Adresse*,Boîte,Lien de la boîte,Latitude,Longitude
-Marius,Boulandet,Furydrack,COUCOU LA TEAM,16/01/2006,PSINJ,"14 rue Jean Giono, Dijon (21000)",Da Viking Code,https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiJvebP6PWOAxUDZaQEHdecDAMQFnoECB8QAQ&url=https%3A%2F%2Fdavikingcode.com%2F&usg=AOvVaw1Hm86Vn0yEHnvjRxGul5jS&opi=89978449,47.3536093,5.0515826
-Gambas,,,Notre reine à tous.,,Saïmiri,86700 Romagne,Conservatoire pour la Protection des Primates,https://www.conservatoireprimates.com/parrainage-gambas,46.2710158,0.3023581
+Prénom*,Nom,Pseudo,Description,Anniversaire,Rôle*,Adresse*,Boîte,Lien de la boîte,,,,,,,,,,,,,,,,,,Latitude,Longitude
+Marius,Boulandet,,COUCOU LA TEAM deuxième du nom,16/01/2006,PSINJ,"14 rue Jean Giono, Dijon (21000)",Da Viking Code,https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiJvebP6PWOAxUDZaQEHdecDAMQFnoECB8QAQ&url=https%3A%2F%2Fdavikingcode.com%2F&usg=AOvVaw1Hm86Vn0yEHnvjRxGul5jS&opi=89978449,,,,,,,,,,,,,,,,,,47.3536093,5.0515826
+Gambas,,,Notre reine à tous.,,Saïmiri,86700 Romagne,Conservatoire pour la Protection des Primates,https://www.conservatoireprimates.com/parrainage-gambas,,,,,,,,,,,,,,,,,,46.2710158,0.3023581
+Yvann,Nadal,,Le revenant pas totalement revenu,08/11/2003,,,,,,,,,,,,,,,,,,,,,,,
+Hugo,Impérat,Royal,a,14/04/2006,PSINJ,11-13 Av. Bataillon Carmagnole Liberté,BREAKFIRST,https://www.breakfirst.games/,,,,,,,,,,,,,,,,,,45.7591426,4.9217334
+Fab D.,Meriais,Ren,Plus jamais,18/04/1999,Roi de ce monde, Montpellier,ArtFX,https://www.youtube.com/watch?v=dQw4w9WgXcQ,,,,,,,,,,,,,,,,,,43.6112422,3.8767337
+Elliot,Nedellec,,L'autre revenant mais qui va en P6!!,08/04/2006,Légende,"121 route de Tilliry, Martel (46600)",bientôt la peau lisse (police mais j'ai pas le lien),https://www.mapeaulisse.com/,,,,,,,,,,,,,,,,,,44.9286116,1.6158905
+Malaak,Benkhattab,,>:) (malice),26/02/2005,PSINJ,,Ikigai,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,Je suis le premier a cacher un truc,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,va voir en G 865,,
