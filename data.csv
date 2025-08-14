@@ -1,3 +1,18 @@
-Prénom*,Nom,Pseudo,Description,Anniversaire,Rôle*,Adresse*,Boîte,Lien de la boîte,Latitude,Longitude
-Marius,Boulandet,Furydrack,COUCOU LA TEAM,16/01/2006,PSINJ,"14 rue Jean Giono, Dijon (21000)",Da Viking Code,https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiJvebP6PWOAxUDZaQEHdecDAMQFnoECB8QAQ&url=https%3A%2F%2Fdavikingcode.com%2F&usg=AOvVaw1Hm86Vn0yEHnvjRxGul5jS&opi=89978449,47.3536093,5.0515826
-Gambas,,,Notre reine à tous.,,Saïmiri,86700 Romagne,Conservatoire pour la Protection des Primates,https://www.conservatoireprimates.com/parrainage-gambas,46.2710158,0.3023581
+Prénom*,Nom,Pseudo,Description,Anniversaire,Rôle*,Adresse*,Boîte,Lien de la boîte,,,,,,,,,,,,,,,,,,Latitude,Longitude
+Marius,Boulandet,,COUCOU LA TEAM deuxième du nom,16/01/2006,PSINJ,"14 rue Jean Giono, Dijon (21000)",Da Viking Code,https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiJvebP6PWOAxUDZaQEHdecDAMQFnoECB8QAQ&url=https%3A%2F%2Fdavikingcode.com%2F&usg=AOvVaw1Hm86Vn0yEHnvjRxGul5jS&opi=89978449,,,,,,,,,,,,,,,,,,47.3536093,5.0515826
+Gambas,,,Notre reine à tous.,,Saïmiri,86700 Romagne,Conservatoire pour la Protection des Primates,https://www.conservatoireprimates.com/parrainage-gambas,,,,,,,,,,,,,,,,,,46.2710158,0.3023581
+Yvann,Nadal,,Le revenant pas totalement revenu,08/11/2003,,,,,,,,,,,,,,,,,,,,,,,
+Hugo,Impérat,Royal,a,14/04/2006,PSINJ,11-13 Av. Bataillon Carmagnole Liberté,BREAKFIRST,https://www.breakfirst.games/,,,,,,,,,,,,,,,,,,45.7591426,4.9217334
+Fab D.,Meriais,Ren,Plus jamais,18/04/1999,Roi de ce monde, Montpellier,ArtFX,https://www.youtube.com/watch?v=dQw4w9WgXcQ,,,,,,,,,,,,,,,,,,43.6112422,3.8767337
+Elliot,Nedellec,,L'autre revenant mais qui va en P6!!,08/04/2006,Légende,"121 route de Tilliry, Martel (46600)",bientôt la peau lisse (police mais j'ai pas le lien),https://www.mapeaulisse.com/,,,,,,,,,,,,,,,,,,44.9286116,1.6158905
+Malaak,Benkhattab,Nekylaw,>:),26/02/2005,PSINJ,75005 Paris,Ikigai - Games for Citizens,https://www.gfc.ikigai.games,,,,,,,,,,,,,,,,,,48.8454189,2.3525824
+Sarah,Niederits,Nectaaria,Zzzzzz,09/10/2006,PSINJ,Carcassonne 11000,Event Orizon,https://eventorizon.studio/,,,,,,,,,,,,,,,,,,43.2130358,2.3491069
+Corentin,Jouan,Walpurgis,sniffa👃,22/09/2006,PSINJ,"249 rue de Fougères , Rennes (35700)",Smart Machines,https://www.smart-machines.net/,,,,,,,,,,,,,,,,,,48.1256680,-1.6555964
+Orelsan,Juguet,Hyverno,Apéritif à base de vodka Black ERISTOFF,10/07/2005,PSINJ,207 Willy Brandt,ludoGang,https://ludogram.io/,,,,,,,,,,,,,,,,,,50.6368063,3.0742065
+Neil,Augereau ,Colonel,Représentant des singes & développeur de jeux procéduraux,12/03/2005,PSINJ,"36 rue de Pisany, Angoulême 16000",Studio Nyx,https://www.studio-nyx.com/,,,,,,,,,,,,,,,,,,45.6581505,0.1701836
+Tom,Foulquier,Timy Tom Baker,j'ai vu de la lumière je suis rentré,25/10/1999,PSINJ,77260 La Ferté-sous-Jouarre,Eversim,,,,,,,,,,,,,,,,,,,48.9502287,3.1296757
+Thybault,Jallu,Troupote,I use arch btw,13/02/2006,PSINJ,"22 allée boissy d'anglas, Evry-Courcouronne",Ezytail,https://www.ezytail.com/,,,,,,,,,,,,,,,,,,,
+Salut léopard anonyme !,,,,,PSINJ,,,,,,,,,,,,,,,,,,,,,,
+Victor,Rouzaud,Okiosk,Je vous ai déjà parlé de la switch 2 ?,04/01/2206,PSINJ,Montigny 78180,BA-info,https://www.ba-info.fr/,,,,,,,,,,,,,,,,,,48.7777373,2.0319415
+,,,,,,,,,,,,,,,,,Je suis le premier a cacher un truc,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,va voir en G 865,,
