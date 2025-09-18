@@ -10,32 +10,48 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Define a default Leaflet icon
 const defaultLeafletIcon = new L.Icon.Default();
 
-// Function to get the appropriate icon for a marker
-function getMarkerIcon(data) {
+// Function to get the appropriate icon for a marker (asynchronous)
+function getMarkerIcon(data, callback) {
     const first_name = data['Prénom*'] || '';
     const last_name = data['Nom'] || '';
     const customIconPath = `PopupCustomVisual/${first_name}_${last_name}.png`;
     
     // Create a temporary image to check if the custom icon exists
     const img = new Image();
+    
+    img.onload = function() {
+        // Image loaded successfully, use custom icon
+        callback(L.icon({
+            iconUrl: customIconPath,
+            iconSize: [50, 50], // size of the icon
+            iconAnchor: [25, 50], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -50], // point from which the popup should open relative to the iconAnchor
+            tooltipAnchor: [0, -3] // Align tooltip with popupAnchor for custom icon
+        }));
+    };
+    
+    img.onerror = function() {
+        // Image failed to load, use default icon
+        callback(L.icon({
+            iconUrl: 'PopupCustomVisual/default.png',
+            iconSize: [50, 50], // size of the icon
+            iconAnchor: [25, 50], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -50], // point from which the popup should open relative to the iconAnchor
+            tooltipAnchor: [0, -3] // Align tooltip with popupAnchor for custom icon
+        }));
+    };
+    
     img.src = customIconPath;
-
-    return L.icon({
-        iconUrl: img.complete && img.naturalHeight !== 0 ? customIconPath : 'PopupCustomVisual/default.png',
-        iconSize: [50, 50], // size of the icon
-        iconAnchor: [25, 50], // point of the icon which will correspond to marker's location
-        popupAnchor: [0, -50], // point from which the popup should open relative to the iconAnchor
-        tooltipAnchor: [0, -3] // Align tooltip with popupAnchor for custom icon
-    });
 }
 
 // Global array to store marker data for the HUD
 const allMarkersData = [];
 
 // 3. Function to add a marker to the map
-function addMarker(data, lat, lon) {
-    const markerIcon = getMarkerIcon(data); // Get the appropriate icon
-    const marker = L.marker([lat, lon], { icon: markerIcon }).addTo(map);
+function addMarker(data, lat, lon, onComplete) {
+    // Get the appropriate icon asynchronously
+    getMarkerIcon(data, function(markerIcon) {
+        const marker = L.marker([lat, lon], { icon: markerIcon }).addTo(map);
 
     const first_name = data['Prénom*'] || '';
     const last_name = data['Nom'] || '';
@@ -110,6 +126,12 @@ function addMarker(data, lat, lon) {
         prenom: first_name,
         nom: last_name
     });
+    
+    // Call the completion callback if provided
+    if (onComplete) {
+        onComplete();
+    }
+    });
 }
 
 // Function to update the marker list HUD
@@ -160,17 +182,34 @@ function loadMarkersFromCSV() {
         header: true,
         complete: function(results) {
             const data = results.data;
+            const validRows = data.slice(0,-1).filter(row => {
+                const lat = parseFloat(row.Latitude);
+                const lon = parseFloat(row.Longitude);
+                return !isNaN(lat) && !isNaN(lon);
+            });
+            
+            let markersLoaded = 0;
+            const totalMarkers = validRows.length;
+            
+            validRows.forEach(row => {
+                const lat = parseFloat(row.Latitude);
+                const lon = parseFloat(row.Longitude);
+                addMarker(row, lat, lon, function() {
+                    markersLoaded++;
+                    if (markersLoaded === totalMarkers) {
+                        updateMarkerListHUD();
+                    }
+                });
+            });
+            
+            // Log rows with invalid coordinates
             data.slice(0,-1).forEach(row => {
                 const lat = parseFloat(row.Latitude);
                 const lon = parseFloat(row.Longitude);
-                if (!isNaN(lat) && !isNaN(lon)) {
-                    addMarker(row, lat, lon);
-                }
-                else {
+                if (isNaN(lat) || isNaN(lon)) {
                     console.warn(`Could not find valid coordinates (Latitude, Longitude) for row: ${JSON.stringify(row)}`);
                 }
             });
-            updateMarkerListHUD();
         }
     });
 }
